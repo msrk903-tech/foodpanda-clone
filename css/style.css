@@ -116,4 +116,29 @@ body {
 .card-text {
     padding: 15px;
     background: white;
+
+} 
+
+/* Mobile Fix - Copy from here */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+        justify-content: space-between;
+    }
+    .hero-content {
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
+/* Mobile Fix - End */
