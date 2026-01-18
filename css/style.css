@@ -1,144 +1,135 @@
-:root {
-    --panda-pink: #D70F64;
-    --dark-grey: #333;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
+/* Universal Reset */
+* {
     margin: 0;
-    background-color: #fff;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar Styling */
+/* Navbar Fix */
 .navbar {
-    padding: 15px 15px;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 5%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    background: white;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .nav-container {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-container img {
+    height: 35px; /* Fixed height for logo */
+    width: auto;
+}
+
+.nav-links {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 
-.logo { height: 35px; }
-
-.nav-links a {
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--panda-pink);
-}
-
+/* Button Styles */
+.btn-login { text-decoration: none; color: #333; font-weight: 600; font-size: 14px; }
 .btn-signup {
-    background: var(--panda-pink);
-    color: white !important;
-    padding: 8px 15px;
+    text-decoration: none;
+    background: #D70F64; /* Your Pink Color */
+    color: white;
+    padding: 8px 16px;
     border-radius: 8px;
+    font-weight: 600;
 }
 
-/* Hero Section Styling */
+/* Hero Section Fix */
 .hero {
-    background-color: #F7F7F7;
     display: flex;
+    flex-wrap: wrap; /* Important for Mobile */
+    padding: 40px 5%;
+    background: #f7f7f7;
     align-items: center;
-    justify-content: space-between;
-    padding: 50px 10%;
-    height: 400px;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
 }
 
 .hero-content h1 {
-    font-size: 40px;
-    color: var(--dark-grey);
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 25px;
 }
 
 .search-container {
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
     display: flex;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .search-container input {
+    flex: 1;
     border: none;
-    width: 350px;
-    padding: 10px;
+    padding: 12px;
     outline: none;
+    font-size: 16px;
 }
 
 .btn-find {
-    background: var(--panda-pink);
+    background: #D70F64;
     color: white;
     border: none;
     padding: 10px 25px;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.hero-image img {
-    height: 300px;
-    border-radius: 20px;
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
 }
 
-/* Grid Styling */
-.cuisines { padding: 50px 10%; }
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
 
+/* Cuisine Grid */
+.cuisines { padding: 50px 5%; }
 .cuisine-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .card {
     border-radius: 15px;
     overflow: hidden;
-    position: relative;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: 0.3s;
 }
-
-.card:hover { transform: scale(1.02); }
 
 .card img { width: 100%; height: 200px; object-fit: cover; }
+.card-text { padding: 15px; text-align: center; }
 
-.card-text {
-    padding: 15px;
-    background: white;
-
-} 
-
-/* Mobile Fix - Copy from here */
+/* MOBILE RESPONSIVENESS (The Magic) */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 20px;
-        justify-content: space-between;
-    }
-    .hero-content {
-        padding: 40px 20px;
-        text-align: center;
-    }
-    .hero-content h1 {
-        font-size: 28px;
-    }
-    .search-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+    .nav-links { gap: 8px; }
+    .btn-login { display: none; } /* Hide login on very small screens to save space */
+    .hero-content h1 { font-size: 1.8rem; text-align: center; }
+    .search-container { flex-direction: column; }
+    .btn-find { width: 100%; margin-top: 10px; }
+    .hero-image { margin-top: 30px; }
 }
-/* Mobile Fix - End */
